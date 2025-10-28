@@ -36,7 +36,7 @@ repo sync
 Then add these projects to .repo/manifest.xml:
 
 ```xml
-<project path="device/xiaomi/surya" name="brigudav/android_device_xiaomi_surya_twrp" remote="github" revision="android-12.1" />
+<project path="device/xiaomi/surya" name="Arata-Labs/device_xiaomi_surya_twrp" remote="github" revision="twrp-12.1" />
 ```
 
 Finally execute these:
