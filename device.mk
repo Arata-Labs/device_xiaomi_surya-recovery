@@ -48,6 +48,11 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so \
 	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so
 
+# Additional custom features
+TWRP_REQUIRED_MODULES += \
+	magisk_prebuilt \
+	dfe_prebuilt
+
 # Overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=$(PRODUCT_RELEASE_NAME) \
