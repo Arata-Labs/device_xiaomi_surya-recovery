@@ -5,6 +5,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Broken rules
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -14,6 +17,9 @@ BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 TARGET_BOOTLOADER_BOARD_NAME := sm6150
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
+
+# Compression
+PRODUCT_FS_COMPRESSION := 1
 
 # Platform
 TARGET_BOARD_PLATFORM := sm6150
@@ -113,7 +119,7 @@ $(foreach p, $(BOARD_PARTITION_LIST), $(eval TARGET_COPY_OUT_$(p) := $(call to-l
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Crypto
-PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION := 16
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
@@ -131,15 +137,21 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := "580"
+TW_CUSTOM_CLOCK_POS := "50"
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-#TW_EXTRA_LANGUAGES := true
+TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_FUSE_NTFS  := true
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
 TW_MAX_BRIGHTNESS := 4095
 TW_DEFAULT_BRIGHTNESS := 1200
+TW_ENABLE_ALL_PARTITION_TOOLS := true
 TW_Y_OFFSET := 91
 TW_H_OFFSET := -91
 TARGET_USES_MKE2FS := true
@@ -147,6 +159,7 @@ TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
 TW_USE_TOOLBOX := true
 TW_SUPPORT_INPUT_1_2_HAPTICS := true
+TW_HAS_MTP := true
 
 # The path to a temperature sensor
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone19/temp"
@@ -159,6 +172,7 @@ TW_QCOM_ATS_OFFSET := 1643101352000
 
 # TWRP tools
 TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_LPDUMP := true
 TW_INCLUDE_LPTOOLS := true

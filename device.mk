@@ -12,6 +12,9 @@ PRODUCT_PLATFORM := sm6150
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Fastbootd
 TW_INCLUDE_FASTBOOTD := true
 
@@ -34,7 +37,10 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 	libion \
 	vendor.display.config@1.0 \
 	vendor.display.config@2.0 \
-	libdisplayconfig.qti
+	libdisplayconfig.qti \
+	vendor.qti.hardware.vibrator.service \
+	vendor.qti.hardware.vibrator.impl \
+	libqtivibratoreffect
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
