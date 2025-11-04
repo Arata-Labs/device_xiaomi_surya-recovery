@@ -1,14 +1,11 @@
 #
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
+# Copyright 2018 The Android Open Source Project
+# Copyright 2014-2022 The Team Win LLC
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_surya.mk
+    $(LOCAL_DIR)/twrp_surya.mk
 
-COMMON_LUNCH_CHOICES := \
-    omni_surya-user \
-    omni_surya-userdebug \
-    omni_surya-eng
+COMMON_LUNCH_CHOICES := twrp_surya-eng

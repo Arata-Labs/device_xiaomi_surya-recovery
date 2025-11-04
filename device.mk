@@ -1,8 +1,50 @@
 #
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
+# Copyright 2018 The Android Open Source Project
+# Copyright 2014-2022 The Team Win LLC
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/xiaomi/surya
+# Define hardware platform
+PRODUCT_PLATFORM := sm6150
+
+# Fastbootd
+TW_INCLUDE_FASTBOOTD := true
+
+PRODUCT_PACKAGES += \
+	android.hardware.fastboot@1.1-impl-mock
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 29
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := surya,karna
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+	$(LOCAL_PATH) \
+	vendor/qcom/opensource/commonsys-intf/display
+
+# Dynamic partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+	libion \
+	vendor.display.config@1.0 \
+	vendor.display.config@2.0 \
+	libdisplayconfig.qti
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
+	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so \
+	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so
+
+# Overrides
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=$(PRODUCT_RELEASE_NAME) \
+    TARGET_DEVICE=$(PRODUCT_RELEASE_NAME)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.device=$(PRODUCT_RELEASE_NAME)
