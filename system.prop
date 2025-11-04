@@ -1,3 +1,4 @@
+ro.adb.secure=0
 ro.product.vendor.marketname=Poco X3 NFC
 ro.product.board=surya
 ro.board.platform=sm6150

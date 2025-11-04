@@ -141,7 +141,7 @@ TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone19/temp"
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 
-TW_QCOM_ATS_OFFSET := 1617714502203
+TW_QCOM_ATS_OFFSET := 1643101352000
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -150,17 +150,23 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
+TW_ENABLE_ALL_PARTITION_TOOLS := true
 TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_FUSE_NTFS  := true
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
 TW_MAX_BRIGHTNESS := 4095
 TW_DEFAULT_BRIGHTNESS := 1200
+TW_NO_SCREEN_BLANK := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_APEX := true
 TW_USE_TOOLBOX := true
 TW_SUPPORT_INPUT_1_2_HAPTICS := true
+TW_HAS_MTP := true
 
 # TWRP tools
 TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_LPDUMP := true
 TW_INCLUDE_LPTOOLS := true
